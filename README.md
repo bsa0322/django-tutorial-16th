@@ -16,18 +16,76 @@
 
 ## 기한
 
-- 2022년 9월 24일 토요일
+- 2022년 9월 24일 토요일 </br></br>
 
-## Django Tutorial
+---
 
-### Make Project
+## 내용 정리
 
+### | Make Project
+
+```bash
+django-admin startproject <프로젝트 이름>
 ```
-django-admin startproject mysite
-```
 
-### Run Server
-
-```
+### | Run Develop Server
+- basic
+```bash
 python manage.py runserver
 ```
+- change port
+```bash
+python manage.py runserver <포트 번호>
+```
+- change ip 
+```bash
+python manage.py runserver <ip>:<port>
+```
+
+### | Create App
+```bash
+python manage.py startapp <앱 이름>
+```
+
+### | Project vs App
+- 프로젝트 = 웹사이트
+- 앱 = 기능의 묶음 (API라고 생각하면 될듯!?)
+
+### | Setting.py
+- 프로젝트의 환경설정에 대한 내용을 담고 있음
+- 시간대에 맞춰 `TIME_ZONE` 설정 가능
+- `INSTALLED_APPS` : 활성화된 모든 어플리케이션
+##### ❗ SECRET_KEY는 보안적 이슈를 고려해 env 파일에 등록해서 사용하자
+
+### | model & migration
+
+- model : 데이터베이스의 테이블과 같은 역할
+- migrations : django에서 데이터베이스 model의 변화를 적용시킬 때 사용하는 방법
+- migrate : 자동으로 데이터베이스 스키마를 관리해주는 명령어
+    ```bash
+    python manage.py migrate
+    ```
+  
+### | Create Model
+- 데이터베이스 애트리뷰트(필드)는 클래스의 인스턴스로서 표현
+- 예시
+    ```python
+  choice_text = models.CharField(max_length=200) # 문자(character) 필드
+  pub_date = models.DateTimeField('date published') # 날짜와 시간(datetime) 필드
+    ```
+  
+- 모델 활성화
+    ```bash
+  python manage.py makemigrations <앱 이름>
+    ```
+  
+- SQL 문 확인
+    ```bash
+  python manage.py sqlmigrate <앱 이름> 0001
+    ```
+  
+### | Create Admin
+```bash
+python manage.py createsuperuser
+```
+
