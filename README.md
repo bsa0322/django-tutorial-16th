@@ -89,3 +89,11 @@ python manage.py startapp <앱 이름>
 python manage.py createsuperuser
 ```
 
+### | View
+- `HttpResponse` 로 응답
+- `HttpResponseRedirect` 를 통해 다른 앱에 바로 요청 보낼 수 있음 
+
+### | Generic View
+- View Class
+- 코드를 깔끔하게 작성할 수 있음
+- 템플릿 느낌
